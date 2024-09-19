@@ -1,0 +1,112 @@
+@keyframes shadowMove {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-container {
+  overflow: visible;
+}
+
+.button {
+  white-space: nowrap;
+  transition: all 300ms ease-in-out;
+  color: var(--foreground-secondary);
+  &:hover {
+    color: var(--foreground);
+  }
+}
+
+.shadow-animation,
+.shadow-blur {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 9999px;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 400%;
+    border-radius: 9999px;
+    animation: shadowMove 25s linear infinite;
+  }
+
+  &::after {
+    filter: blur(5px);
+    opacity: 0.5;
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+}
+
+.always-active {
+  .shadow-animation,
+  .shadow-blur {
+    opacity: 1;
+  }
+}
+
+.is-active {
+  .shadow-animation,
+  .shadow-blur {
+    &::after {
+      filter: blur(8px);
+      opacity: 1;
+    }
+  }
+}
+
+.rainbow {
+  .shadow-animation,
+  .shadow-blur {
+    &::before,
+    &::after {
+      background-image: linear-gradient(
+                      45deg,
+                      #fb0094,
+                      #0000ff,
+                      #00ff00,
+                      #ffff00,
+                      #ff0000,
+                      #fb0094,
+                      #0000ff,
+                      #00ff00,
+                      #ffff00,
+                      #ff0000
+      );
+    }
+  }
+}
+
+.blueGrey {
+  .shadow-animation,
+  .shadow-blur {
+    &::before,
+    &::after {
+      background-image: linear-gradient(
+                      45deg,
+                      var(--background-secondary),
+                      var(--accent-pink),
+                      var(--background-secondary),
+                      var(--accent-pink),
+                      var(--background-secondary)
+      );
+    }
+  }
+}
