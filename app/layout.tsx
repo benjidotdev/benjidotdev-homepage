@@ -8,17 +8,17 @@ import Header from '@/app/components/header/Header'
 const supra = localFont({
   src: [
     {
-      path: '../public/static/fonts/suprapower/SupraPower-Regular.woff2',
+      path: '../public/static/fonts/suprapower/Suprapower-Regular.woff2',
       weight: '400',
       style: 'normal'
     },
     {
-      path: '../public/static/fonts/suprapower/SupraPower-Medium.woff2',
+      path: '../public/static/fonts/suprapower/Suprapower-Medium.woff2',
       weight: '500',
       style: 'normal'
     },
     {
-      path: '../public/static/fonts/suprapower/SupraPower-Heavy.woff2',
+      path: '../public/static/fonts/suprapower/Suprapower-Heavy.woff2',
       weight: '900',
       style: 'normal'
     }
